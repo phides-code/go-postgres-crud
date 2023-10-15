@@ -1,8 +1,8 @@
 curl -X POST -H "Content-Type: application/json" -d '
 {
 "Make": "Toyota",
-"Model": "Prius C",
-"Year": 2015
+"Model": "Corolla",
+"Year": 1999
 }' http://localhost:8080/api/addcar | jq .
 
 curl -X POST -H "Content-Type: application/json" -d '

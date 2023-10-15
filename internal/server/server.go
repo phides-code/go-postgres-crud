@@ -4,13 +4,21 @@ import (
 	"humdrum/internal/conf"
 	"humdrum/internal/database"
 	"humdrum/internal/store"
+	"log"
+	"os"
 )
+
+const portKey = "PORT_KEY"
 
 func Start(cfg conf.Config) {
 	store.SetDBConnection(database.NewDBOptions(cfg))
 
 	router := setRouter()
+	port, ok := os.LookupEnv(portKey)
 
-	// Start listening and serving requests
-	router.Run(":8080")
+	if ok {
+		// Start listening and serving requests
+		log.Println("*** Server running on port " + port + " ***")
+		router.Run(":" + port)
+	}
 }
