@@ -19,3 +19,8 @@ curl -X PUT -H "Content-Type: application/json" -d '
 }' http://localhost:8080/api/updatecar | jq .
 
 curl -X DELETE http://localhost:8080/api/deletecar/1 | jq .
+
+curl -X POST -H "Content-Type: application/json" -d '
+{
+
+}' http://192.168.86.140:8080/api/getcars | jq .
